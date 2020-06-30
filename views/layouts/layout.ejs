@@ -8,9 +8,10 @@
     <title>Bok-Bibliotek</title>
 </head>
 <body>
-    Before
-        <%- body %> <!-- body importerer alle ejs-sider -->
-    After
-    
+
+        <%- include('../partials/header') %>
+        <%- include('../partials/errorMessage') %>
+        <%- body %>  <!-- body importerer alle ejs-sider -->
+
 </body>
 </html>
