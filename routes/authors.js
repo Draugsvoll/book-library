@@ -6,9 +6,9 @@ const Author = require('../models/author') // hente database
 
 // All authours route
 router.get('/', async (req, res) => {
-    let searchOptions = {}
-    if (req.query.name != null && req.query.name !== '') {   // query henter QUERY string fra URL (after ? in URL)
-        searchOptions.name = new RegExp(req.query.name, 'i')    // 'i' betyr case insensitive
+    let searchOptions = {}  // store search options in empty js object
+    if (req.query.name != null && req.query.name !== '') {   // query henter QUERY string fra URL (after ? in URL). Brukes på GET
+        searchOptions.name = new RegExp(req.query.name, 'i')    // 'i' betyr case insensitive. Lar oss søke kun "part" of the name
     }
    try {
        const authors = await Author.find(searchOptions)   // find() tar imot *WHERE conditions inne i {}
