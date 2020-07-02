@@ -1,0 +1,25 @@
+<h2>Search Book</h2>
+<form action="/books" method="GET">
+    <div>
+        <label for="">Title</label>
+        <input type="text" name="title" value="<%= searchOptions.title %>">
+    </div>
+    <div>
+        <label for="">Published After</label>
+        <input type="date" name="publishedAfter" value="<%= searchOptions.publishedAfter %>">
+    </div>
+    <div>
+        <label for="">Published Before</label>
+        <input type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>">
+    </div>
+    <button type="submit">Search</button>
+</form>
+<div>
+    <% books.forEach(book => { %>
+        <img src="<%= book.coverImagePath %> " height="125" width="125">    <!-- lager 'variable' i databasen som henter path for oss -->
+        <div><%= book.title %></div>
+        <div><%= book.publishDate.toISOString().split('T')[0] %></div>
+    <% }) %>
+</div>
+
+

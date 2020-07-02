@@ -1,1 +1,7 @@
-Middle 
+<h2>Recently Added</h2>
+<div>
+    <% books.forEach(book => { %>
+        <img src="<%= book.coverImagePath %> " height="125" width="125">    <!-- lager 'variable' i databasen som henter path for oss -->
+        <div><%= book.title %></div>
+    <% }) %>
+</div>

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const path = require('path')
 
 const coverImageBasePath = 'uploads/bookCovers' // have to export this to Router
 
@@ -25,7 +26,7 @@ const bookSchema = new mongoose.Schema({
         reauired: true,
         default: Date.now
     },
-    coverImageName: {       // store path as string, instead of the actually image
+    coverImageName: {       
         type: String,
         required: true
     },
@@ -35,6 +36,14 @@ const bookSchema = new mongoose.Schema({
         ref: 'Author'   // Which object we want
     }
 })
+
+// 'coverImagePath' fungerer som en attributt (som de andre)
+bookSchema.virtual('coverImagePath').get(function() {       // bruker ikke arrow function fordi vi vil bruke this. som referer til Book attributes
+    if(this.coverImageName != null) {
+        return path.join(coverImageBasePath, this.coverImageName)  // join Root of object (public-folder), append coverImageBasePath, append filename
+        
+    }
+})       
 
 module.exports = mongoose.model('Book', bookSchema)
 module.exports.coverImageBasePath = coverImageBasePath  // exported as a named variable
