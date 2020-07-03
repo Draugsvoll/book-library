@@ -13,4 +13,4 @@ router.get('/', async (req, res) => {
    res.render('index', {books: books})
 })
 
-module.exports = router // gjør det mulig å hente Routeren fra app.js 
+module.exports = router // gjør det mulig å hente denn Routeren i app.js 

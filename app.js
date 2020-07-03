@@ -33,11 +33,14 @@ app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views') // __dirname = current directory
 app.set('layout', 'layouts/layout')
 
+
 app.use(expressLayouts)
-app.use(express.static('public'))   // where public static assset files like views are stored
-app.use('/', indexRouter)           // ta i bruk indexRoute på '/'  (index-siden)
+app.use(express.static('public'))   // where public static assset files are stored
+
+// use routes
+app.use('/', indexRouter)           
 app.use('/authors', authorRouter)
-app.use('/books', bookRouter)       // ta i bruk routes
+app.use('/books', bookRouter)       
 
 
 //  env.PORT will be configured by host
