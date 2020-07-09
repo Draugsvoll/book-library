@@ -26,7 +26,19 @@ const bookSchema = new mongoose.Schema({
         reauired: true,
         default: Date.now
     },
+
+    /* original
     coverImageName: {       
+        type: String,
+        required: true
+    },
+    */
+
+   coverImage: {       
+        type: Buffer,
+        required: true
+    },
+    coverImageType: {
         type: String,
         required: true
     },
@@ -37,13 +49,24 @@ const bookSchema = new mongoose.Schema({
     }
 })
 
-// 'coverImagePath' fungerer som en attributt (som de andre)
+// 'coverImagePath' vil nå fungerer som en attributt (som de andre)
 bookSchema.virtual('coverImagePath').get(function() {       // bruker ikke arrow function fordi vi vil bruke this. som referer til Book attributes
-    if(this.coverImageName != null) {
-        return path.join(coverImageBasePath, this.coverImageName)  // join Root of object (public-folder), append coverImageBasePath, append filename
-        
+    if(this.coverImage != null && this.coverImageType != null) {
+        return `data:${this.coverImageType};charset=utf-8;base64,
+            ${this.coverImage.toString('base64')}`;      
+                // lager 'data' objekt som html kan bruke.  data:type;charset;decodedType, the_decoded_variable 
     }
 })       
 
 module.exports = mongoose.model('Book', bookSchema)
 module.exports.coverImageBasePath = coverImageBasePath  // exported as a named variable
+
+// 'coverImagePath' fungerer som en attributt (som de andre)
+/* original
+bookSchema.virtual('coverImagePath').get(function() {       // bruker ikke arrow function fordi vi vil bruke this. som referer til Book attributes
+    if(this.coverImageName != null) {
+        return path.join(coverImageBasePath, this.coverImageName)  // join Root of object (public-folder), append coverImageBasePath, append filename
+        
+    }
+})    
+*/
