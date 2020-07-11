@@ -41,14 +41,61 @@ router.get('/', async (req, res) => {
     }
 })
 
+// new book page
+router.get('/new', (req, res) => {
+    renderNewPage(res, new Book())
+ })
+ 
 
-// new book route
-router.get('/new', async (req, res) => {
-   renderNewPage(res, new Book())
+// view book
+router.get('/:id', async (req, res) => {
+    try {
+        const book = await Book.findById(req.params.id)
+                            .populate('author') /* populate the 'author' variable in the book, */
+                            .exec()             /*   with ALL the author information */
+        res.render('books/show', { book: book }) /* mulig siden 'author' var. i en bok peker på et 'Author' objekt */
+    } catch (error) {
+        res.redirect('/') 
+    }
 })
 
 
-// create book route
+
+// edit book 
+router.get('/:id/edit', async (req, res) => {
+    let book
+    let authors
+    try {
+        authors = await Author.find()
+        book = await Book.findById(req.params.id).populate('author').exec()
+        res.render('books/edit', { book: book, authors: authors })
+    } catch (error) {
+        res.redirect('/')
+    }
+})
+
+
+// UPDATE book
+router.put('/:id', async (req, res) => {
+    let book
+    try {
+        book = await Book.findById(req.params.id)
+        book.title = req.body.title
+        book.author = req.body.author
+        book.publishDate = new Date(req.body.publishDate)
+        book.pageCount = req.body.pageCount
+        book.description = req.body.description
+        if (req.body.cover != null && req.body.cover != '') {
+            saveCover(book, req.body.cover)
+        }
+        await book.save()
+        res.redirect(`${book.id}`)
+    } catch (error) {
+        res.redirect('/') 
+    }
+})
+
+// CREATE BOOK POST
 router.post('/', async (req, res) => {  // upload.single('cover') says we upload a single file which we name cover. 'cover' references 'name' i 'form'
         const book = new Book({
         title: req.body.title,
@@ -74,13 +121,31 @@ router.post('/', async (req, res) => {  // upload.single('cover') says we upload
 })
 
 
-// delete book
+// delete book page
+router.get('/:id', async (req, res) => {
+    let book
+    try {
+        book = await Book.findById(req.params.id)
+        await book.remove()
+        res.redirect('/books')
+    } catch (error) {
+        if (book) {
+            res.render('books/show', { book: book, errorMessage: 'Could not remove book' })
+        } else {
+            res.redirect('/')
+        }
+    }
+})
+
+
+// DELETE BOOK
 router.delete('/:id', async (req, res) => {
     await Book.findByIdAndDelete(req.params.id)
     res.redirect('/books')
 })
 
 
+// DELETE COVER IF BOOK NOT CREATED
 /* not needed when using FilePond saving in DB
 function removeBookCover(filename) {
     fs.unlink(path.join(uploadPath, filename), error => {
@@ -96,10 +161,13 @@ async function renderNewPage(res, book, hasError = false) {     // need res, to 
             authors: authors, 
             book: book
         }
-        if(hasError) params.errorMessage = 'Error creating book'
+        if(hasError) {
+            params.errorMessage = 'Error creating book'
+        } 
         res.render('books/new', params)
+        
     } catch (error) {
-        res.redirect('/books')
+        res.redirect('/new')
     }
 }
 

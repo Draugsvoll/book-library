@@ -16,7 +16,11 @@
 </form>
 <div>
     <% books.forEach(book => { %>
-        <img src="<%= book.coverImagePath %> " height="125" width="125">    <!-- lager 'variable' i databasen som henter path for oss -->
+        <a href="/books/<%= book.id %>">
+            <img src="<%= book.coverImagePath %> " height="125" width="125">    
+            <!-- lager en 'variable' i databasen som vi henter og gir oss imagePath -->
+        </a>
+        
         <div><%= book.title %></div>
         <div><%= book.publishDate.toISOString().split('T')[0] %></div>
     <% }) %>
