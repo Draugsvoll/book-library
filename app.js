@@ -35,7 +35,7 @@ app.set('layout', 'layouts/layout')
 
 
 app.use(expressLayouts)
-app.use(express.static('public'))   // where public static assset files are stored
+app.use(express.static('public'))   // PUBLIC STATIC FILES
 
 // use routes
 app.use('/', indexRouter)           

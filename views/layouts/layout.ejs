@@ -18,13 +18,18 @@
     <!-- filepond js-->
     <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
     <script defer src="/javascripts/fileUpload.js"></script>
+    <link rel="stylesheet" href="/stylesheets/main.css">
     <title>Bok-Bibliotek</title>
 </head>
 <body>
-
+    <div class="container">
         <%- include('../partials/header') %>
-        <%- include('../partials/errorMessage') %>
-        <%- body %>  <!-- body importerer alle ejs-sider -->
+        <div class="inner-container">
+            <%- include('../partials/errorMessage') %>
+            <%- body %>  <!-- body importerer alle ejs-sider -->
+        </div>
+    </div>
+       
         
 </body>
 </html>

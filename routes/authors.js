@@ -57,7 +57,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-// edit author
+// edit author page
 router.get('/:id/edit', async (req, res) => {
     try {
         const author = await Author.findById(req.params.id)
@@ -68,7 +68,7 @@ router.get('/:id/edit', async (req, res) => {
 })
 
 
-// edit author PUT
+// EDIT AUTHOR PUT
 router.put('/:id', async (req, res) => {
     let author
    try {
@@ -97,13 +97,21 @@ router.delete('/:id', async (req, res) => {
          await author.remove()
          res.redirect('/authors') 
     } catch (error) {
-        if(!author){
-            res.redirect('/')
-        }else{
             res.redirect(`/authors/${author.id}`) 
         }
-    }
 })
 
+// DELETE AUTHOR
+router.delete('/:id/1', async (req, res) => {
+    let author
+    try {
+         author = await Author.findById(req.params.id)
+         await author.remove()
+         res.redirect('/authors') 
+    } catch (error) {
+        console.log('ny router')
+            res.redirect(`/authors`) 
+        }
+})
 
 module.exports = router // gjør det mulig å hente Routeren fra app.js 

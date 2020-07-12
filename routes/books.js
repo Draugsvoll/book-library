@@ -141,18 +141,17 @@ router.get('/:id', async (req, res) => {
 // DELETE BOOK
 router.delete('/:id', async (req, res) => {
     await Book.findByIdAndDelete(req.params.id)
-    res.redirect('/books')
+        res.redirect('/books')
 })
 
 
 // DELETE COVER IF BOOK NOT CREATED
-/* not needed when using FilePond saving in DB
 function removeBookCover(filename) {
     fs.unlink(path.join(uploadPath, filename), error => {
         if (error) console.error(error)
     })
 }
-*/
+
 
 async function renderNewPage(res, book, hasError = false) {     // need res, to render. 
     try {
