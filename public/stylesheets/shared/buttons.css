@@ -1,3 +1,5 @@
+@import 'form.css';
+
 :root {
     --color-btn-primary-background: hsl(var(--color-base-hue), 100%, 80%);
     --color-btn-primary-text: hsl(var(--color-base-hue), 100%, 20%);
@@ -52,4 +54,27 @@
 
 .btn-row > *:first-child {
     margin-left: 0;
+}
+
+
+@media only screen and (max-width: 410px) {
+    .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .btn-row > * {
+        margin-left: 0;
+    }
+    .btn-row > *:first-child {
+        margin-left: 0;
+    }
+    .row-end {
+        display: flex;
+        justify-content: flex-start !important;
+    }
+    .form-item {
+        max-width: 100% !important;
+        margin: 0px !important;
+        padding: 0px !important;
+    }
 }

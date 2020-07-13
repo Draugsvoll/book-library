@@ -12,3 +12,9 @@
 .author-row {
     padding-left: 7px;
 }
+
+@media only screen and (max-width: 600px) {
+    .author-row {
+        
+    }
+}
