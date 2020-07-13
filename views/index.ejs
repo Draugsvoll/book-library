@@ -2,7 +2,7 @@
 <div>
     <% books.forEach(book => { %>
         <a href="/books/<%= book.id %>">
-            <img src="<%= book.coverImagePath %> " height="125" width="125">    <!-- lager 'variable' i databasen som henter path for oss -->
+            <img src="<%= book.coverImagePath %>" style="height:150px;">    <!-- lager 'variable' i databasen som henter path for oss -->
         </a>
         <div><%= book.title %></div>
     <% }) %>

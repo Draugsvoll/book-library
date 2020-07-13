@@ -109,7 +109,7 @@ router.post('/', async (req, res) => {  // upload.single('cover') says we upload
     try {    
         
         const newBook = await book.save()
-        res.redirect('books')
+        res.redirect(`/books/${book.id}`)
     } catch (error) {
         /* 
         if( book.coverImageName != null){
