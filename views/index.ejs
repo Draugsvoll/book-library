@@ -1,9 +1,10 @@
 <h2 class="page-header">Recently Added</h2>
-<div>
+<div class="books-recently-added">
     <% books.forEach(book => { %>
-        <a href="/books/<%= book.id %>">
-            <img src="<%= book.coverImagePath %>" style="height:150px;">    <!-- lager 'variable' i databasen som henter path for oss -->
-        </a>
-        <div><%= book.title %></div>
+        <div class="books-recently-added-inner">
+            <a href="/books/<%= book.id %>"><img src="<%= book.coverImagePath %>" style="height:300px;">   
+             <!-- lager 'variable' i databasen som henter path for oss --></a>
+             <div class="book-title"><%= book.title %></div>
+        </div>
     <% }) %>
 </div>

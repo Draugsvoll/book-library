@@ -1,0 +1,14 @@
+.author-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.author-name {
+    font-size: 1.5rem;
+}
+
+.author-row {
+    padding-left: 7px;
+}

@@ -17,12 +17,14 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 5rem;
+    
 }
 
 .header-nav ul {
     display: flex;
     margin: 0;
     padding: 0;
+    flex-wrap: wrap;
 }
 
 .header-nav li {
@@ -33,7 +35,8 @@
     text-decoration: none;
     color: var(--color-text-light);
     font-weight: var(--nav-link-font-weight);
-    padding: 1rem;
+    padding-right: 2rem;
+    
 }
 
 .header-nav li a:hover, .header-title:hover {

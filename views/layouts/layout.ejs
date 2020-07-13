@@ -22,14 +22,14 @@
     <title>Bok-Bibliotek</title>
 </head>
 <body>
+
     <div class="container">
         <%- include('../partials/header') %>
         <div class="inner-container">
             <%- include('../partials/errorMessage') %>
-            <%- body %>  <!-- body importerer alle ejs-sider -->
+            <div class="page-container"><%- body %>  <!-- body importerer alle ejs-sider --></div>
         </div>
     </div>
        
-        
 </body>
 </html>
