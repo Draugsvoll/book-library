@@ -44,4 +44,4 @@ app.use('/books', bookRouter)
 
 
 //  env.PORT will be configured by host
-app.listen(2000)
+app.listen(process.env.PORT || 2000)
