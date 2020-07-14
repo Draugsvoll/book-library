@@ -6,15 +6,37 @@
 }
 
 .author-name {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    text-align: center;
 }
 
 .author-row {
     padding-left: 7px;
+    margin-top: 20px;
+    max-width: 500px;
 }
 
-@media only screen and (max-width: 600px) {
-    .author-row {
-        
+.books-by-author {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.each-author-book {
+    margin-left: 35px;
+}
+
+.each-author-book:first-child {
+    margin-left: 0px;
+}
+
+.book-title {
+    text-align: center;
+    font-size: 25px;
+}
+
+@media only screen and (max-width: 522px) {
+    .each-author-book {
+        margin-top: 20px;
+        margin-left: 0px;
     }
 }

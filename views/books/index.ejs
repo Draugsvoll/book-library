@@ -1,4 +1,4 @@
-<h2 class="page-header">Search Book</h2>
+<h2 class="page-header">Search Book: </h2>
 <form action="/books" method="GET">
     <div class="form-row">
         <div class="form-item">
@@ -13,23 +13,21 @@
         </div>
         <div class="form-item">
             <label for="">Published Before</label>
-        <input type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>">
+            <input type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>">
         </div>
     </div>
     <div class="form-row row-end">
         <button class="btn btn-primary" type="submit">Search</button>
     </div>
+    <div class="page-header"> Results: </div>
 </form>
-<div>
-    <% books.forEach(book => { %>
-        <a href="/books/<%= book.id %>">
-            <img src="<%= book.coverImagePath %> " style="height:150px">    
-            <!-- lager en coverImagePath 'variable' i databasen som vi henter og gir oss imagePath -->
+
+<div class="books-by-author">
+    <% books.forEach( book => { %>
+    <div class="each-author-book"><a href="/books/<%= book.id %>">
+            <img id="img" src="<%= book.coverImagePath %>" style="height:250px;">
         </a>
-        
-        <div><%= book.title %></div>
-        <div><%= book.publishDate.toISOString().split('T')[0] %></div>
+        <div class="book-title"><%= book.title %></div>
+    </div>
     <% }) %>
 </div>
-
-

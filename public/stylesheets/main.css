@@ -4,6 +4,7 @@
 @import 'shared/buttons.css';
 @import 'shared/form.css';
 @import 'shared/author.css';
+@import 'shared/book.css';
 
 :root {
     font-family: 'Gotham Rounded';
@@ -40,6 +41,13 @@ body {
     font-weight: 500;
 }
 
+.search-results {
+    margin-top: -20px;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
 .books-recently-added {
     display: inline-flex;
     flex-wrap: wrap;    
@@ -52,4 +60,11 @@ body {
 
 #filepond--drop-label-je5uzljtp {
     height: 200px;
+}
+
+#img {
+    object-fit: cover;
+}
+.img {
+    object-fit: cover;
 }

@@ -17,8 +17,6 @@ const upload = multer( { dest: uploadPath, fileFilter: (req, file, callback) => 
 })
 
 
-
-
 // All books route
 router.get('/', async (req, res) => {
     let query = Book.find({})   // lager query
@@ -75,7 +73,7 @@ router.get('/:id/edit', async (req, res) => {
 })
 
 
-// UPDATE book
+// EDIT BOOK
 router.put('/:id', async (req, res) => {
     let book
     try {
