@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,8 @@
     <!-- filepond css-->
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <!-- filepond preview css -->
-    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+        rel="stylesheet">
     <!-- filepond preview js -->
     <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
     <!--filepond encode img -->
@@ -21,17 +23,21 @@
     <script defer src="/javascripts/fileUpload.js"></script>
 
     <link rel="stylesheet" id="main-css" href="/stylesheets/main.css">
-    <title>Bok-Bibliotek</title>
+    <title>Library</title>
 </head>
+
 <body>
 
     <div class="container">
         <%- include('../partials/header') %>
         <div class="inner-container">
             <%- include('../partials/errorMessage') %>
-            <div class="page-container"><%- body %>  <!-- body importerer alle ejs-sider --></div>
+            <div class="page-container"><%- body %>
+                <!-- body importerer alle ejs-sider -->
+            </div>
         </div>
     </div>
-       
+
 </body>
+
 </html>
