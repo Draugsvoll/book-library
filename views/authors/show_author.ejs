@@ -4,10 +4,15 @@
         <%- include('../partials/deleteForm', 
             { url: `/authors/${author.id}` }) %>
 </div>
-
+<br>
+<br>
 <% if (booksByAuthor.length > 0 ) { %>
-    <h2 class="page-header">Books By Author</h2>
+    <h2 class="page-header">Books By <%= author.name %></h2>
+    <div class="books-by-author">
     <% booksByAuthor.forEach( book => { %>
-        <img src="<%= book.coverImagePath %>" style="height:150px;">
+        <div class="each-author-book"><a href="/books/<%= book.id %>">
+                <img id="img" src="<%= book.coverImagePath %>" style="height:250px;">
+                </a><div class="book-title"><%= book.title %></div></div>
     <% }) %>
+</div>
 <% } %>

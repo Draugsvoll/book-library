@@ -1,0 +1,63 @@
+.book-details {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.hei {
+    margin: 0;
+    padding: 0;
+}
+
+.book-details-label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    align-items: flex-start;
+}
+
+.book-details-grid {
+    display: flex;
+    margin-left: 20px;
+    display: grid;
+    align-content: flex-start;
+    align-items: center;
+    grid-gap: 1rem;
+    grid-template-columns: auto auto;
+}
+
+.btns {
+    margin: 0.5rem 0rem 1rem 0;
+    display:flex;
+    padding: 0;
+    max-width: 60px;
+}
+
+.btns a {
+    margin-right: 10px;
+}
+
+.delete-btn {
+    margin-top: -7px;
+}
+
+.books-by-author {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.each-author-book {
+    margin-right: 25px;
+}
+
+@media only screen and (max-width: 620px) {
+    .book-details-grid {
+        display: flex;
+        margin-left: 0px;
+        margin-top: 10px;
+        display: grid;
+        align-content: flex-start;
+        align-items: center;
+        grid-gap: .5rem;
+        grid-template-columns: auto auto;
+    }
+}

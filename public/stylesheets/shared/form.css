@@ -9,16 +9,14 @@
     display: flex;
     margin-bottom: 0.5rem;
     flex-wrap: wrap;
-  
 }
 
 .form-item {
     display: flex;
     flex-direction: column;
-    
-    flex-grow: 1;
     flex-basis: 0; /* alle bokser starte på lik linje */
     margin-left: 2rem;
+    flex-grow: 1;
 }
 
 
@@ -48,7 +46,6 @@
 
 }
 
-
 .form-item input:focus, .form-item select:focus, .form-item textarea:focus {
     border-color: var(--form-input-border-color-light);
 }
@@ -67,6 +64,7 @@
 .form-item textarea {
     height: 100%;
     resize: none;
+    min-height: 65px;
 }
 
 
@@ -75,7 +73,11 @@
 }
 
 
-/* filepond */
+/* FILEPOND */
+.filepond--root, .filepond, .filepond--hopper {
+    height: 275px;
+    width: 100%;
+}
 .filepond--root {
     font-family: 'Gotham Rounded';
     margin-bottom: 0;
@@ -125,3 +127,4 @@
     .filepond--root {
         font-size: 0.8rem;
     }}
+
