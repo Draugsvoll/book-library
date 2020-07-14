@@ -22,10 +22,19 @@
 }
 
 .each-author-book {
+<<<<<<< HEAD
     margin-left: 30px;
     margin-top: 20px;
 }
 
+=======
+    margin-left: 35px;
+}
+
+.each-author-book:first-child {
+    margin-left: 0px;
+}
+>>>>>>> f679cfa5be60076a1e60de1a53b915f6eafe22fd
 
 .book-title {
     text-align: center;
