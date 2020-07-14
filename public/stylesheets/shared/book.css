@@ -46,11 +46,8 @@
 }
 
 .each-author-book {
-<<<<<<< HEAD
-    margin-left: 40px;
-=======
-    margin-right: 25px;
->>>>>>> f679cfa5be60076a1e60de1a53b915f6eafe22fd
+    margin-right: 45px;
+    text-align: center;
 }
 
 @media only screen and (max-width: 620px) {
