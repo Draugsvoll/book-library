@@ -22,12 +22,10 @@
 }
 
 .each-author-book {
-    margin-left: 35px;
+    margin-left: 30px;
+    margin-top: 20px;
 }
 
-.each-author-book:first-child {
-    margin-left: 0px;
-}
 
 .book-title {
     text-align: center;
@@ -40,3 +38,4 @@
         margin-left: 0px;
     }
 }
+
