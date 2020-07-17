@@ -3,11 +3,16 @@ if(process.env.NODE_ENV !== 'production'){
     require('dotenv').config()  // henter variablene i .env filen
 } 
 
-
 const express = require('express') 
 const app = express() // app portion of express
+
+// layout & views
 const expressLayouts = require('express-ejs-layouts')
-const bodyParser = require('body-parser')
+app.set('view engine', 'ejs')
+app.set('views', __dirname + '/views') // __dirname = current directory
+app.set('layout', 'layouts/layout')
+app.use(expressLayouts)
+app.use(express.static('public'))   // PUBLIC STATIC FILES
 
 // override
 const methodOverride = require('method-override')
@@ -21,21 +26,13 @@ db.on('error', error => console.error(error))    // sjekk for error på oppkobli
 db.once('open', () => {console.log('Connected to Moongoose')})     // show message once on open
 
 // må sette opp body-parser BEFORE routers (to make it work)
+const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))  // sending values via URL to server (access params)
 
 // henter routes
 const indexRouter = require('./routes/index')       // henter indexRoute fra index route (via modules.exports)
 const authorRouter = require('./routes/authors')   
 const bookRouter = require('./routes/books')
-
-// setup views
-app.set('view engine', 'ejs')
-app.set('views', __dirname + '/views') // __dirname = current directory
-app.set('layout', 'layouts/layout')
-
-
-app.use(expressLayouts)
-app.use(express.static('public'))   // PUBLIC STATIC FILES
 
 // use routes
 app.use('/', indexRouter)           

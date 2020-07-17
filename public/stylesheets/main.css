@@ -62,9 +62,3 @@ body {
     height: 200px;
 }
 
-#img {
-    object-fit: cover;
-}
-.img {
-    object-fit: cover;
-}
